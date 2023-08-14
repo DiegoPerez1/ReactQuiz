@@ -1,7 +1,5 @@
 /* import { useState } from 'react' */
-
 import './App.css'
-
 import background from './assets/Background.mp4'
 import Testeando from './assets/components/Testeando'
 
