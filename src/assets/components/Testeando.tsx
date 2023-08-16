@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import './Questionary.css'
+import React, { useState, useEffect } from 'react';
+import './Questionary.css';
+import confetti from 'canvas-confetti';
 
 interface Question {
   question: string;
@@ -24,7 +25,7 @@ function Testeando() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const maxQuestions = 10;
-  const apiUrl = "https://opentdb.com/api.php?amount=1";
+  const apiUrl = "https://opentdb.com/api.php?amount=10&category=9";
 
   const fetchQuestion = async () => {
     setLoading(true);
@@ -41,6 +42,8 @@ function Testeando() {
   const checkAnswer = (selectedAnswer: string) => {
     if (selectedAnswer === question?.correct_answer) {
       setCorrectAnswers(correctAnswers + 1);
+      handleConfetti();
+      handleConfetti2();
     }
     if (questionNumber < maxQuestions) {
       setQuestionNumber(questionNumber + 1);
@@ -71,7 +74,24 @@ function Testeando() {
     return shuffled;
   };
 
+  const handleConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 90,
+      angle: 10,
+      origin: { y: 0.9 },
+    });
+  };
+  const handleConfetti2 = () => {
+    confetti({
+      particleCount: 100,
+      spread: 90,
+      angle: 100,
+      origin: { y: 0.9 },
+    });
+  };
   return (
+
     <div className="App">
       <h2 className='scoreTitle'>Score: {correctAnswers}/{maxQuestions}</h2>
       {gameOver ? (
@@ -102,7 +122,9 @@ function Testeando() {
             </>
           )}
         </div>
+
       )}
+
     </div>
   );
 }

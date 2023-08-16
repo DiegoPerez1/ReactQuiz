@@ -1,4 +1,4 @@
-const apiUrl = "https://opentdb.com/api.php?amount=10";
+const apiUrl = "https://opentdb.com/api.php?amount=10&category=9";
 
 // Función para obtener las preguntas desde la API
 async function getQuestions() {
