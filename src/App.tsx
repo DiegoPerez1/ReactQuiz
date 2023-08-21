@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <main className='container'>
-
         <section className='content'>
           <div className='titleDiv'>
             <h1 className='title'>React Quiz</h1>
@@ -17,11 +16,8 @@ function App() {
           <section className='questSection'>
             <Testeando />
           </section>
-
         </section>
-
         <video src={background} autoPlay loop muted />
-
       </main>
     </>
   )
